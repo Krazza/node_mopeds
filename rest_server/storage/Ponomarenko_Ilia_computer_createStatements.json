@@ -21,7 +21,7 @@
       "data": [
         [1, "SuperComputer", "PC", "AMD 4 Ryzen", 5],
         [2, "MegaComputer", "laptop", "Intel 9", 4],
-        [3, "UltaComputer", "PC", "Intel 5", 4]
+        [3, "UltraComputer", "PC", "Intel 5", 4]
       ]
     }
   ]

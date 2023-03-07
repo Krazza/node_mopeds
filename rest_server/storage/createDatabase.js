@@ -8,8 +8,8 @@ const printError = message =>
     printMessage(`${'#'.repeat(20)} Error ${'#'.repeat(20)}\n`+
     `${message}\n${'#'.repeat(47)}`);
 
-let createStatementFile='./computerCreateStatements.json';
-let adminPass = '';
+let createStatementFile="./Ponomarenko_Ilia_computer_createStatements.json";
+let adminPass = 'secret';
 
 if(process.argv.length>2){
     adminPass=process.argv[2];
