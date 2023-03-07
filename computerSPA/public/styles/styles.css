@@ -1,6 +1,8 @@
-h1{
-    color:green;
+*{
+    font-family: Arial, sans-serif;
+    text-align: center;
 }
+
 
 .legend{
     color:blue;
@@ -8,28 +10,37 @@ h1{
 }
 
 main{
-    display: grid;
+    display: flex;
     align-items: center;
     justify-items: center;
+    flex-direction: column;
 }
 
 table{
     border-collapse: collapse;
-    margin-bottom: 1em;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 table,th,td{
-    border:solid black 1px;
-    padding: 0.5em;
+
+    border:1px solid #dddddd;
+    padding: 8px;
+}
+tr:nth-child(even){
+    background-color: #dddddd;
 }
 thead{
-    background-color: khaki;
+    background-color: #418465e3;
 }
 
 button{
-    font-family: sans-serif;
-    width: 13em;
-    height: 2em;
+    color:white;
+    background-color: #418465e3;
+    border: 0px solid;
+    border-radius: 4px;
+    padding: 5px;
+    margin-top: 1em;
 }
 
 .info{
@@ -45,6 +56,8 @@ button{
 #messagearea{
     margin-top: 0.5em;
     margin-bottom: 0.5em;
+    text-align: center;
+    padding: 5px;
 }
 input[readonly]{
     background-color: lightgray;
