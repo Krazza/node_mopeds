@@ -2,8 +2,8 @@
     "host":"localhost",
     "port":3306,
     "admin":"ILYA",
-    "user":"oliver",
-    "userpassword":"1234",
+    "user":"emil",
+    "userpassword":"mk98KYLI",
     "dropUser":true,
     "debug":true,
     "database":"computerdb",
@@ -14,13 +14,14 @@
             "columns":[
                 "id integer not null primary key",
                 "name varchar(20) not null",
-                "type varchar(30) not null",
-                "processor varchar(15) not null",
+                "type varchar(27) not null",
+                "processor varchar(14) not null",
                 "amount integer not null"
             ],
             "data":[
-                [1,"Beast II","server","Selenium II",100],
-                [2, "Cera 2400", "laptop","Brain 456", 25]
+                [1,"SuperComputer","PC","AMD 4 Ryzen",5],
+                [2, "MegaComputer", "laptop","Intel 9", 4],
+                [3, "UltaComputer", "PC","Intel 5", 4]
             ]
         }
     ]

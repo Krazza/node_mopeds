@@ -1,8 +1,8 @@
 {
     "host":"localhost",
     "port":3306,
-    "user":"oliver",
-    "password":"1234",
+    "user":"emil",
+    "password":"mk98KYLI",
     "database":"computerdb",
     "allowPublicKeyRetrieval": true
 }
