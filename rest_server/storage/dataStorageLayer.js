@@ -14,13 +14,6 @@ const removeSql=sql.remove.join(' ');
 
 const PRIMARY_KEY=sql.primaryKey;
 
-// console.log(getAllSql);
-// console.log(getSql);
-// console.log(insertSql);
-// console.log(updateSql);
-// console.log(removeSql);
-// console.log(PRIMARY_KEY);
-
 module.exports = class Datastorage{
     constructor(){
         this.db=new Database(options);
@@ -41,11 +34,10 @@ module.exports = class Datastorage{
                 resolve(result.queryResult);
             }
             catch(err){
-                console.log(err); //for debugging
                 reject(MESSAGES.PROGRAM_ERROR());
             }
         });
-    } //end of getAll
+    } 
 
     get(key){
         return new Promise(async (resolve,reject)=>{
@@ -59,11 +51,10 @@ module.exports = class Datastorage{
                 }
             }
             catch(err){
-                console.log(err); //for debugging
                 reject(MESSAGES.PROGRAM_ERROR());
             }
         })
-    } //end of get
+    } 
 
     insert(resourceObject){
         return new Promise(async (resolve,reject)=>{
@@ -72,11 +63,10 @@ module.exports = class Datastorage{
                 resolve(MESSAGES.INSERT_OK(PRIMARY_KEY, resourceObject[PRIMARY_KEY]));
             }
             catch(err){
-                console.log(err); //for debugging
                 reject(MESSAGES.NOT_INSERTED());
             }
         })
-    } //end of insert
+    } 
 
     update(key, resourceObject){
         return new Promise(async (resolve,reject)=>{
@@ -107,11 +97,10 @@ module.exports = class Datastorage{
                 }
             }
             catch(err){
-                console.log(err); //for debugging
                 reject(MESSAGES.PROGRAM_ERROR());
             }
         })
-    } //end of update
+    } 
 
     remove(key){
         return new Promise(async (resolve,reject)=>{
@@ -125,10 +114,9 @@ module.exports = class Datastorage{
                 }
             }
             catch(err){
-                console.log(err); //for debugging
                 reject(MESSAGES.PROGRAM_ERROR());
             }
         })
-    } //end of remove
+    } 
 
-}//end of class
+}

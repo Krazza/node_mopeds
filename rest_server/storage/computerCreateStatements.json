@@ -1,28 +1,28 @@
 {
-    "host":"localhost",
-    "port":3306,
-    "admin":"ILYA",
-    "user":"emil",
-    "userpassword":"mk98KYLI",
-    "dropUser":true,
-    "debug":true,
-    "database":"computerdb",
-    "allowPublicKeyRetrieval": true,
-    "tables":[
-        {
-            "tableName":"computer",
-            "columns":[
-                "id integer not null primary key",
-                "name varchar(20) not null",
-                "type varchar(27) not null",
-                "processor varchar(14) not null",
-                "amount integer not null"
-            ],
-            "data":[
-                [1,"SuperComputer","PC","AMD 4 Ryzen",5],
-                [2, "MegaComputer", "laptop","Intel 9", 4],
-                [3, "UltaComputer", "PC","Intel 5", 4]
-            ]
-        }
-    ]
+  "host": "localhost",
+  "port": 3306,
+  "admin": "ILYA",
+  "user": "emil",
+  "userpassword": "mk98KYLI",
+  "dropUser": true,
+  "debug": true,
+  "database": "computerdb",
+  "allowPublicKeyRetrieval": true,
+  "tables": [
+    {
+      "tableName": "computer",
+      "columns": [
+        "id integer not null primary key",
+        "name varchar(20) not null",
+        "type varchar(27) not null",
+        "processor varchar(14) not null",
+        "amount integer not null"
+      ],
+      "data": [
+        [1, "SuperComputer", "PC", "AMD 4 Ryzen", 5],
+        [2, "MegaComputer", "laptop", "Intel 9", 4],
+        [3, "UltaComputer", "PC", "Intel 5", 4]
+      ]
+    }
+  ]
 }

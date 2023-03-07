@@ -37,7 +37,6 @@ async function createDb(createStatements, adminPass){
     const DEBUG=createStatements.debug;
     const db=new Database(options);
 
-    //'jane'@'localhost'
     const user=`'${createStatements.user}'@'${createStatements.host}'`;
     const dropDatabaseSql=`drop database if exists ${createStatements.database}`;
     const createDatabaseSql = `create database ${createStatements.database}`;
