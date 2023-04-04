@@ -3,13 +3,13 @@
 (function () {
   let resultarea;
   let messagearea;
-  let computerId;
+  let mopedId;
 
   document.addEventListener("DOMContentLoaded", init);
 
   function init() {
     resultarea = document.getElementById("resultarea");
-    computerId = document.getElementById("computerid");
+    mopedId = document.getElementById("mopedid");
     messagearea = document.getElementById("messagearea");
     document.getElementById("submit").addEventListener("click", send);
   }
@@ -18,9 +18,9 @@
     clearMessage();
     resultarea.innerHTML = "";
     try {
-      if (computerId.value.trim().length > 0) {
+      if (mopedId.value.trim().length > 0) {
         const data = await fetch(
-          `http://localhost:4000/api/computers/${computerId.value}`,
+          `http://localhost:4000/api/mopeddb/${mopedId.value}`,
           { mode: "cors" }
         );
         const result = await data.json();
@@ -28,7 +28,7 @@
           if (result.message) {
             updateMessage(result.message, result.type);
           } else {
-            updateComputer(result);
+            updateMoped(result);
           }
         }
       }
@@ -47,15 +47,15 @@
     messagearea.removeAttribute("class");
   }
 
-  function updateComputer(result) {
+  function updateMoped(result) {
     if (result.length === 0) return;
-    const computer = result[0];
+    const moped = result[0];
     resultarea.innerHTML = `
-        <p><span class="legend">Id</span> ${computer.id}</p>
-        <p><span class="legend">Name</span> ${computer.name}</p>
-        <p><span class="legend">Type</span> ${computer.type}</p>
-        <p><span class="legend">Processor</span> ${computer.processor}</p>
-        <p><span class="legend">Amount</span> ${computer.amount}</p>
+        <p><span class="legend">Id</span> ${moped.mopedid}</p>
+        <p><span class="legend">Name</span> ${moped.name}</p>
+        <p><span class="legend">Type</span> ${moped.itemsInStock}</p>
+        <p><span class="legend">Processor</span> ${moped.topSpeed}</p>
+        <p><span class="legend">Amount</span> ${moped.modelYear}</p>
         `;
   }
 })();

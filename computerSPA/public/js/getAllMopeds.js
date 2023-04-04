@@ -5,19 +5,19 @@
 
   async function init() {
     try {
-      const data = await fetch("http://localhost:4000/api/computers", {
+      const data = await fetch("http://localhost:4000/api/mopeddb", {
         mode: "cors",
       });
-      const computers = await data.json();
+      const mopeddb = await data.json();
 
       const resultset = document.getElementById("resultset");
-      for (const computer of computers) {
+      for (const moped of mopeddb) {
         const tr = document.createElement("tr");
-        tr.appendChild(createCell(computer.id));
-        tr.appendChild(createCell(computer.name));
-        tr.appendChild(createCell(computer.type));
-        tr.appendChild(createCell(computer.processor));
-        tr.appendChild(createCell(computer.amount));
+        tr.appendChild(createCell(moped.mopedid));
+        tr.appendChild(createCell(moped.name));
+        tr.appendChild(createCell(moped.itemsInStock));
+        tr.appendChild(createCell(moped.topSpeed));
+        tr.appendChild(createCell(moped.modelYear));
         resultset.appendChild(tr);
       }
     } catch (error) {

@@ -1,29 +1,29 @@
 "use strict";
 
 (function () {
-  let idField;
+  let mopedidField;
   let nameField;
-  let typeField;
-  let processorField;
-  let amountField;
+  let itemsInStockField;
+  let topSpeedField;
+  let modelYearField;
   let messagearea;
   let searchState = true;
 
   document.addEventListener("DOMContentLoaded", init);
 
   function init() {
-    idField = document.getElementById("id");
+    mopedidField = document.getElementById("mopedid");
     nameField = document.getElementById("name");
-    typeField = document.getElementById("type");
-    processorField = document.getElementById("processor");
-    amountField = document.getElementById("amount");
+    itemsInStockField = document.getElementById("itemsInStock");
+    topSpeedField = document.getElementById("topSpeed");
+    modelYearField = document.getElementById("modelYear");
     messagearea = document.getElementById("messagearea");
 
     updateFields();
 
     document.getElementById("submit").addEventListener("click", send);
 
-    idField.addEventListener("focus", clearAll);
+    mopedidField.addEventListener("focus", clearAll);
   }
 
   function updateMessage(message, type) {
@@ -45,38 +45,38 @@
 
   function updateFields() {
     if (searchState) {
-      idField.removeAttribute("readonly");
+      mopedidField.removeAttribute("readonly");
       nameField.setAttribute("readonly", true);
-      typeField.setAttribute("readonly", true);
-      processorField.setAttribute("readonly", true);
-      amountField.setAttribute("readonly", true);
+      itemsInStockField.setAttribute("readonly", true);
+      topSpeedField.setAttribute("readonly", true);
+      modelYearField.setAttribute("readonly", true);
     } else {
-      idField.setAttribute("readonly", true);
+      mopedidField.setAttribute("readonly", true);
       nameField.removeAttribute("readonly");
-      typeField.removeAttribute("readonly");
-      processorField.removeAttribute("readonly");
-      amountField.removeAttribute("readonly");
+      itemsInStockField.removeAttribute("readonly");
+      topSpeedField.removeAttribute("readonly");
+      modelYearField.removeAttribute("readonly");
     }
   } //updateFields end
 
   function clearFieldValues() {
-    idField.value = "";
+    mopedidField.value = "";
     nameField.value = "";
-    typeField.value = "";
-    processorField.value = "";
-    amountField.value = "";
+    itemsInStockField.value = "";
+    topSpeedField.value = "";
+    modelYearField.value = "";
     searchState = true;
     updateFields();
-  } //end of clearFieldValues
+  }
 
-  function updateComputer(result) {
+  function updateMoped(result) {
     if (result.length === 0) return;
-    const computer = result[0];
-    idField.value = computer.id;
-    nameField.value = computer.name;
-    typeField.value = computer.type;
-    processorField.value = computer.processor;
-    amountField.value = computer.amount;
+    const moped = result[0];
+    mopedidField.value = moped.mopedid;
+    nameField.value = moped.name;
+    itemsInStockField.value = moped.itemsInStock;
+    topSpeedField.value = moped.topSpeed;
+    modelYearField.value = moped.modelYear;
     searchState = false;
     updateFields();
   }
@@ -84,10 +84,9 @@
   async function send() {
     try {
       if (searchState) {
-        //get computer
-        if (idField.value.trim().length > 0) {
+        if (mopedidField.value.trim().length > 0) {
           const data = await fetch(
-            `http://localhost:4000/api/computers/${idField.value}`,
+            `http://localhost:4000/api/mopeddb/${mopedidField.value}`,
             { mode: "cors" }
           );
           const result = await data.json();
@@ -95,23 +94,22 @@
             if (result.message) {
               updateMessage(result.message, result.type);
             } else {
-              updateComputer(result);
+              updateMoped(result);
             }
           }
         }
       } else {
-        //put computer
-        const computer = {
-          id: idField.value,
+        const moped = {
+          mopedid: mopedidField.value,
           name: nameField.value,
-          type: typeField.value,
-          processor: processorField.value,
-          amount: amountField.value,
+          itemsInStock: itemsInStockField.value,
+          topSpeed: topSpeedField.value,
+          modelYear: modelYearField.value,
         };
 
         const options = {
           method: "PUT",
-          body: JSON.stringify(computer),
+          body: JSON.stringify(moped),
           headers: {
             "Content-Type": "application/json",
           },
@@ -119,7 +117,7 @@
         };
 
         const data = await fetch(
-          `http://localhost:4000/api/computers/${computer.id}`,
+          `http://localhost:4000/api/mopeddb/${moped.id}`,
           options
         );
 

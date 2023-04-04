@@ -1,0 +1,32 @@
+{
+    "host":"localhost",
+    "port":3306,
+    "admin":"admin",
+    "user":"kevin",
+    "userpassword":"123",
+    "dropUser":true,
+    "debug":true,
+    "database":"mopeddb",
+    "allowPublicKeyRetrieval": true,
+    "tables":[
+        {
+            "tableName":"moped",
+            "columns":[
+                "mopedid integer not null primary key",
+                "name varchar(20) not null",
+                "itemsInStock integer not null",
+                "topSpeed integer not null",
+                "modelYear integer not null"
+            ],
+            "data":[
+                [1,"MotoX 2000", 130, 10, 2011],
+                [2, "Mummy 10", 350, 15, 2000],
+                [3, "Skooter 95", 100, 20, 2010],
+                [4, "Daddy 1", 50, 40, 1995],
+                [5, "Grampa 89", 30, 5, 2017],
+                [6, "MaxNoise 120", 150, 30, 2015],
+                [7, "Xross 3", 70, 25, 2005]
+            ]
+        }
+    ]
+}

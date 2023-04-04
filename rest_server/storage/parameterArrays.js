@@ -1,13 +1,13 @@
 'use strict';
 
-const toInsertArray=computer=>[
-    +computer.id, computer.name, computer.type, 
-    computer.processor, +computer.amount
+const toInsertArray = moped=>[
+    +moped.mopedid, moped.name, +moped.itemsInStock, 
+    +moped.topSpeed, +moped.modelYear
 ];
 
-const toUpdateArray = computer => [
-    computer.name, computer.type, computer.processor,
-    +computer.amount, +computer.id
+const toUpdateArray = moped => [
+    moped.name, +moped.itemsInStock, +moped.topSpeed,
+    +moped.modelYear, +moped.mopedid
 ];
 
 module.exports={toInsertArray, toUpdateArray}

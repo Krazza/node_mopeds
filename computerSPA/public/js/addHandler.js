@@ -1,21 +1,21 @@
 "use strict";
 
 (function () {
-  let idField;
+  let modepidField;
   let nameField;
-  let typeField;
-  let processorField;
-  let amountField;
+  let itemsInStockField;
+  let topSpeedField;
+  let modelYearField;
   let messagearea;
 
   document.addEventListener("DOMContentLoaded", init);
 
   function init() {
-    idField = document.getElementById("id");
+    modepidField = document.getElementById("mopedid");
     nameField = document.getElementById("name");
-    typeField = document.getElementById("type");
-    processorField = document.getElementById("processor");
-    amountField = document.getElementById("amount");
+    itemsInStockField = document.getElementById("itemsInStock");
+    topSpeedField = document.getElementById("topSpeed");
+    modelYearField = document.getElementById("modelYear");
     messagearea = document.getElementById("messagearea");
 
     document.getElementById("submit").addEventListener("click", send);
@@ -23,25 +23,25 @@
 
   async function send() {
     clearMessage();
-    const computer = {
-      id: +idField.value,
+    const moped = {
+      mopedid: +modepidField.value,
       name: nameField.value,
-      type: typeField.value,
-      processor: processorField.value,
-      amount: +amountField.value,
+      itemsInStock: +itemsInStockField.value,
+      topSpeed: +topSpeedField.value,
+      modelYear: +modelYearField.value,
     };
 
     try {
       const options = {
         method: "POST",
-        body: JSON.stringify(computer),
+        body: JSON.stringify(moped),
         headers: {
           "Content-Type": "application/json",
         },
         mode: "cors",
       };
 
-      const data = await fetch("http://localhost:4000/api/computers", options);
+      const data = await fetch("http://localhost:4000/api/mopeddb", options);
       const status = await data.json();
 
       if (status.message) {

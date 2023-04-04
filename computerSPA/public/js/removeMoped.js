@@ -7,7 +7,7 @@
   document.addEventListener("DOMContentLoaded", init);
 
   function init() {
-    inputField = document.getElementById("computerid");
+    inputField = document.getElementById("mopedid");
     messagearea = document.getElementById("messagearea");
     document.getElementById("submit").addEventListener("click", send);
   }
@@ -22,7 +22,7 @@
       };
 
       const data = await fetch(
-        `http://localhost:4000/api/computers/${id}`,
+        `http://localhost:4000/api/mopeddb/${id}`,
         options
       );
       const status = await data.json();

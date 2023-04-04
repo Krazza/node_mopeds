@@ -1,15 +1,15 @@
 {
-  "getAll": ["select id,name,type,processor,amount from computer"],
-  "get": ["select id,name,type,processor,amount from computer", "where id=?"],
+  "getAll": ["select mopedid, name, itemsInStock, topSpeed, modelYear"],
+  "get": ["select mopedid, name, itemsInStock, topSpeed, modelYear", "where id=?"],
   "insert": [
-    "insert into computer (id, name, type, processor, amount)",
+    "insert into moped (mopedid, name, itemsInStock, topSpeed, modelYear)",
     "values(?,?,?,?,?)"
   ],
   "update": [
-    "update computer set name=?, type=?, processor=?, amount=?",
-    "where id=?"
+    "update moped set name=?, itemsInStock=?, topSpeed=?, modelYear=?",
+    "where mopedid=?"
   ],
-  "remove": ["delete from computer where id=?"],
-  "primaryKey": "id",
-  "resource": "computers"
+  "remove": ["delete from moped where mopedid=?"],
+  "primaryKey": "mopedid",
+  "resource": "mopeddb"
 }
