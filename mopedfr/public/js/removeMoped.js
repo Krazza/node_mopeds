@@ -22,7 +22,7 @@
       };
 
       const data = await fetch(
-        `http://localhost:4000/api/mopeddb/${id}`,
+        `http://localhost:4000/api/moped/${id}`,
         options
       );
       const status = await data.json();

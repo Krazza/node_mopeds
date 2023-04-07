@@ -41,7 +41,7 @@
         mode: "cors",
       };
 
-      const data = await fetch("http://localhost:4000/api/mopeddb", options);
+      const data = await fetch("http://localhost:4000/api/moped", options);
       const status = await data.json();
 
       if (status.message) {

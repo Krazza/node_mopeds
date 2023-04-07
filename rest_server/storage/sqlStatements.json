@@ -1,6 +1,6 @@
 {
-  "getAll": ["select mopedid, name, itemsInStock, topSpeed, modelYear"],
-  "get": ["select mopedid, name, itemsInStock, topSpeed, modelYear", "where id=?"],
+  "getAll": ["select mopedid,name,itemsInStock,topSpeed,modelYear from moped"],
+  "get": ["select mopedid,name,itemsInStock,topSpeed,modelYear", "where mopedid=?"],
   "insert": [
     "insert into moped (mopedid, name, itemsInStock, topSpeed, modelYear)",
     "values(?,?,?,?,?)"
@@ -11,5 +11,5 @@
   ],
   "remove": ["delete from moped where mopedid=?"],
   "primaryKey": "mopedid",
-  "resource": "mopeddb"
+  "resource": "moped"
 }

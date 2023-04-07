@@ -86,7 +86,7 @@
       if (searchState) {
         if (mopedidField.value.trim().length > 0) {
           const data = await fetch(
-            `http://localhost:4000/api/mopeddb/${mopedidField.value}`,
+            `http://localhost:4000/api/moped/${mopedidField.value}`,
             { mode: "cors" }
           );
           const result = await data.json();
@@ -117,7 +117,7 @@
         };
 
         const data = await fetch(
-          `http://localhost:4000/api/mopeddb/${moped.id}`,
+          `http://localhost:4000/api/moped/${moped.id}`,
           options
         );
 

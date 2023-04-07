@@ -20,7 +20,7 @@
     try {
       if (mopedId.value.trim().length > 0) {
         const data = await fetch(
-          `http://localhost:4000/api/mopeddb/${mopedId.value}`,
+          `http://localhost:4000/api/moped/${mopedId.value}`,
           { mode: "cors" }
         );
         const result = await data.json();

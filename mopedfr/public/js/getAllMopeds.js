@@ -5,13 +5,13 @@
 
   async function init() {
     try {
-      const data = await fetch("http://localhost:4000/api/mopeddb", {
+      const data = await fetch("http://localhost:4000/api/moped", {
         mode: "cors",
       });
-      const mopeddb = await data.json();
+      const mopeds = await data.json();
 
       const resultset = document.getElementById("resultset");
-      for (const moped of mopeddb) {
+      for (const moped of mopeds) {
         const tr = document.createElement("tr");
         tr.appendChild(createCell(moped.mopedid));
         tr.appendChild(createCell(moped.name));
