@@ -1,10 +1,10 @@
 'use strict';
 
-const Database = require('./database');
+const Database = require('./database.js');
 const options=require('./databaseOptions.json');
 const sql=require('./sqlStatements.json');
-const { toInsertArray, toUpdateArray } = require('./parameterArrays');
-const {CODES,MESSAGES} = require('./statusCodes');
+const { toInsertArray, toUpdateArray } = require('./parameterArrays.js');
+const {CODES,MESSAGES} = require('./statusCodes.js');
 
 const getAllSql=sql.getAll.join(' ');
 const getSql=sql.get.join(' ');
@@ -31,10 +31,11 @@ module.exports = class Datastorage{
         return new Promise( async (resolve,reject)=>{
             try{
                 const result= await this.db.doQuery(getAllSql);
+                console.log(result);
                 resolve(result.queryResult);
             }
             catch(err){
-                reject(MESSAGES.PROGRAM_ERROR());
+                reject(MESSAGES.PROGRAM_ERROR(err));
             }
         });
     } 
@@ -51,7 +52,7 @@ module.exports = class Datastorage{
                 }
             }
             catch(err){
-                reject(MESSAGES.PROGRAM_ERROR());
+                reject(MESSAGES.PROGRAM_ERROR(err));
             }
         })
     } 
@@ -97,7 +98,7 @@ module.exports = class Datastorage{
                 }
             }
             catch(err){
-                reject(MESSAGES.PROGRAM_ERROR());
+                reject(MESSAGES.PROGRAM_ERROR(err));
             }
         })
     } 
@@ -114,7 +115,7 @@ module.exports = class Datastorage{
                 }
             }
             catch(err){
-                reject(MESSAGES.PROGRAM_ERROR());
+                reject(MESSAGES.PROGRAM_ERROR(err));
             }
         })
     } 

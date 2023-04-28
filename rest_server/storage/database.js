@@ -29,7 +29,7 @@ module.exports = class Database {
           });
         }
       } catch (err) {
-        reject("SQL-error: " + err);
+        reject("SQL: " + sql + " :: " + "Error: " + err);
       } finally {
         if (connection) connection.end();
       }

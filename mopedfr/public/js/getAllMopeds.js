@@ -5,10 +5,12 @@
 
   async function init() {
     try {
-      const data = await fetch("http://localhost:4000/api/moped", {
+      const data = await fetch("http://localhost:4000/api/mopedTable", {
         mode: "cors",
       });
       const mopeds = await data.json();
+
+        console.log(mopeds);
 
       const resultset = document.getElementById("resultset");
       for (const moped of mopeds) {

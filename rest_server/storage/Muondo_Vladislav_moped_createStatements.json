@@ -10,7 +10,7 @@
     "allowPublicKeyRetrieval": true,
     "tables":[
         {
-            "tableName":"moped",
+            "tableName":"mopedTable",
             "columns":[
                 "mopedid integer not null primary key",
                 "name varchar(20) not null",

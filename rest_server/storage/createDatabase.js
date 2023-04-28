@@ -27,6 +27,7 @@ catch(error){
 }
 
 async function createDb(createStatements, adminPass){
+
     const options={
         host:createStatements.host,
         port:createStatements.port,
@@ -38,13 +39,13 @@ async function createDb(createStatements, adminPass){
     const db=new Database(options);
 
     const user=`'${createStatements.user}'@'${createStatements.host}'`;
-    const dropDatabaseSql=`drop database if exists ${createStatements.database}`;
-    const createDatabaseSql = `create database ${createStatements.database}`;
-    const dropUserSql=`drop user if exists ${user}`;
-    const createUserSql=`create user if not exists ${user} `+
+    const dropDatabaseSql=`DROP DATABASE IF EXISTS ${createStatements.database}`;
+    const createDatabaseSql = `CREATE DATABASE ${createStatements.database}`;
+    const dropUserSql=`DROP USER IF EXISTS ${user}`;
+    const createUserSql=`CREATE USER IF NOT EXISTS ${user} `+
                     `identified by '${createStatements.userpassword}'`;
     const grantPrivilegesSql=
-        `grant all privileges on ${createStatements.database}.* to ${user}`;
+        `GRANT ALL PRIVILEGES ON ${createStatements.database}.* TO ${user}`;
 
     try{
         await db.doQuery(dropDatabaseSql);
