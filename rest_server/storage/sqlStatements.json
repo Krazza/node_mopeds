@@ -1,6 +1,6 @@
 {
   "getAll": ["select mopedid, name, itemsInStock, topSpeed, modelYear from mopedTable"],
-  "get": ["select mopedid,name,itemsInStock,topSpeed,modelYear", "where mopedid=?"],
+  "get": ["select mopedid,name,itemsInStock,topSpeed,modelYear from mopedTable", "where mopedid=?"],
   "insert": [
     "insert into mopedTable (mopedid, name, itemsInStock, topSpeed, modelYear)",
     "values(?,?,?,?,?)"

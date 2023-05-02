@@ -117,7 +117,7 @@
         };
 
         const data = await fetch(
-          `http://localhost:4000/api/mopedTable/${moped.id}`,
+          `http://localhost:4000/api/mopedTable/${moped.mopedid}`,
           options
         );
 
